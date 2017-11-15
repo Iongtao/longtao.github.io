@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>baiduyixia</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 80vw;
+            height: 10vw;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #mess {
+            width: 100%;
+            height: 10vw;
+            outline-style: none;
+            border: 1px solid #ccc;
+            border-radius: 4.6vw;
+            box-sizing: border-box;
+            padding-left: 3.2vw;
+            font-size: 3.46vw;
+        }
+
+        input[type="search"]::-webkit-search-cancel-button {
+            display: none;
+        }
+    </style>
+    <script src='http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js'></script>
+    <script>
+        $(function () {
+            $('#mess').on('keypress', function (e) {
+                var keycode = e.keyCode;  
+                var searchName = $(this).val();  
+                if(keycode=='13') {  
+                    e.preventDefault();    
+                    search();                      
+                }
+            })
+        })
+
+        function search() {
+            var url = 'https://m.baidu.com/ssid=2ccec1f9d4c2546f7275f895/s?word=' + $('#mess').val();
+            window.open(url, '_self');
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <form action="" class="input-kw-form">
+            <input type="search" id="mess">
+        </form>
+    </div>
+</body>
+
+</html>
